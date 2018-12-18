@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "`dirname $0`/.."
+cd "`dirname $0`/.."
 git pull
 
 export FLASK_APP=/home/pi/dev/kettlr.py
