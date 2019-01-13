@@ -7,10 +7,10 @@ addons:
 
 deploy:
   - provider: script
-    skip_cleanup: true
-    script: sshpass -e ssh pi@kettle.mur-phy.com "supervisorctl restart kettlr"
-    on:
-      branch: master
+  skip_cleanup: true
+  script: bash scripts/deploy.sh
+  on:
+    branch: master
 
 script:
   - echo "no tests"
