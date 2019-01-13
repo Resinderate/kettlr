@@ -1,16 +1,17 @@
 language: python
 
+script:
+  - echo "no tests"
+
 addons:
   apt:
     packages:
     - sshpass
 
 deploy:
-  - provider: script
+  provider: script
   skip_cleanup: true
   script: bash scripts/deploy.sh
   on:
     branch: master
 
-script:
-  - echo "no tests"
