@@ -1,0 +1,15 @@
+language: python
+
+addons:
+  apt:
+    packages:
+    - sshpass
+
+deploy:
+  - provider: script
+    script: bash scripts/deploy.sh
+    on:
+      branch: master
+
+script:
+  - echo "no tests"
