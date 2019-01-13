@@ -3,6 +3,7 @@ import time
 
 from flask import Flask
 import RPi.GPIO as GPIO
+import sh
 import signal
 
 
@@ -21,6 +22,11 @@ class KettleRobot:
         GPIO.cleanup()
 
 
+class ServiceUpdater:
+    def update(self):
+        sh.supervisorctl.restart("kettlr")
+
+
 app = Flask(__name__)
 
 @app.route("/on/")
@@ -28,3 +34,8 @@ def turn_the_kettle_on():
     robot = KettleRobot()
     robot.turn_on_kettle()
     return "Boiling!"
+
+# @app.route("/restart/", methods=["GET"])
+@app.route("/restart/")
+def restart():
+    ServiceUpdater().update()
