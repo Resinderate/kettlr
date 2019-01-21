@@ -3,7 +3,6 @@ import time
 
 from flask import Flask
 import RPi.GPIO as GPIO
-import sh
 import signal
 
 
